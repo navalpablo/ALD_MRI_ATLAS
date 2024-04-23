@@ -22,6 +22,14 @@
         padding-top: 20px;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* soft shadow for depth */
     }
+	
+	.slider-instruction {
+		font-size: 16px; /* Adjust font size for clarity */
+		text-align: center; /* Center align the text */
+		color: #666; /* Soft grey for readability */
+		margin-bottom: 10px; /* Space between instruction and slider */
+	}
+	
     .sidebar img {
         width: 100%; 
         height: auto;
@@ -216,6 +224,7 @@ function loadImages(groupName) {
     container.innerHTML = `
         <div class="structure-header">Structures in ${groupName}</div>
         <img id="current-slice" src="images/${groupName}/${groupName}_slice_${slices[groupName][0]}.jpeg" alt="Current Slice">
+        <p class="slider-instruction">Drag the slider to view different slices:</p>
         <input type="range" id="slice-slider" min="0" max="${slices[groupName].length - 1}" value="0" step="1" oninput="updateImage('${groupName}', ${JSON.stringify(slices[groupName])})">
     `;
 }
