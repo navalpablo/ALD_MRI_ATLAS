@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Brain Atlas for X-ALD</title>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    .sidebar {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+    .sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #818181;
+        display: block;
+    }
+    .sidebar a:hover {
+        color: #f1f1f1;
+    }
+    .main {
+        margin-left: 250px;
+        padding: 20px;
+    }
+    .image-container {
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        height: 90vh;
+        text-align: center;
+    }
+    img {
+        max-height: 85vh;
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .content {
+        max-width: 800px;
+        margin: auto;
+        text-align: justify;
+    }
+    .structure-header {
+        margin-top: 20px;
+        font-size: 20px;
+        color: #666;
+    }
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+    <a href="#" onclick="showHome()">Home</a>
+    <a href="#" onclick="loadImages('FRONTAL')">FRONTAL</a>
+	<a href="#" onclick="loadImages('PARIETO_OCCIPITAL')">PARIETO OCCIPITAL</a>
+	<a href="#" onclick="loadImages('ANTERIOR_TEMPORAL')">ANTERIOR TEMPORAL</a>
+	<a href="#" onclick="loadImages('CORPUS_CALLOSUM')">CORPUS CALLOSUM</a>
+	<a href="#" onclick="loadImages('THALAMUS')">THALAMUS</a>
+	<a href="#" onclick="loadImages('CORTICOSPINAL')">CORTICOSPINAL</a>
+	<a href="#" onclick="loadImages('ACOUSTIC')">ACOUSTIC</a>
+    <a href="#" onclick="loadImages('OPTIC')">OPTIC</a>
+	<a href="#" onclick="loadImages('MISC')">MISC</a>
+</div>
+
+<div class="main">
+    <div id="content" class="content">
+        <h2>Welcome to the Brain Atlas for X-ALD</h2>
+        <p>This educational website is designed to provide an interactive learning experience using the anatomical atlas tailored for MRI severity scoring in X-linked adrenoleukodystrophy (X-ALD).</p>
+		<p>Developed by researchers at the Bellvitge University Hospital and IDIBELL "Neurometabolic diseases" and "Diagnostic Imaging and Nuclear Medicine" Research groups.</p>
+        <h3>Explore Brain Regions</h3>
+        <ul>
+            <li><strong>FRONTAL:</strong> Deep, Middle, and Superficial layers of the frontal lobe.</li>
+            <li><strong>PARIETO-OCCIPITAL:</strong> Deep, Middle, and Superficial layers of the parieto-occipital regions lobe.</li>
+            <li><strong>ANTERIOR TEMPORAL:</strong> Deep, Middle, and Superficial layers of the anterior temporal lobe.</li>
+            <li><strong>CORPUS CALLOSUM:</strong> Body, Genu, and Splenium.</li>
+            <li><strong>THALAMUS:</strong> Anterior thalamus.</li>
+            <li><strong>CORTICOSPINAL:</strong> Corticospinal tract separated by brainstem and internal capsule regions.</li>
+            <li><strong>ACOUSTIC:</strong> Brachium, Lateral Lemniscus, Medial Geniculate ganglion, Pons.</li>
+            <li><strong>OPTIC:</strong> Lateral Geniculate, Meyers Loop, Radiations.</li>
+            <li><strong>MISC:</strong> Basal Ganglia, Cerebellum.</li>
+        </ul>
+        <p>Anyone is free to share and use the images however they want, though acknowledgement is appreciated.</p>
+    </div>
+</div>
+
+<script>
+function showHome() {
+    const container = document.getElementById('content');
+    container.innerHTML = `
+        <h2>Welcome to the Brain Atlas for X-ALD</h2>
+        <p>This educational website is designed to provide an interactive learning experience using the anatomical atlas tailored for MRI severity scoring in X-linked adrenoleukodystrophy (X-ALD).</p>
+		<p>Developed by researchers at the Bellvitge University Hospital and IDIBELL "Neurometabolic diseases" and "Diagnostic Imaging and Nuclear Medicine" Research groups.</p>
+        <h3>Explore Brain Regions</h3>
+        <ul>
+            <li><strong>FRONTAL:</strong> Deep, Middle, and Superficial layers of the frontal lobe.</li>
+            <li><strong>PARIETO-OCCIPITAL:</strong> Deep, Middle, and Superficial layers of the parieto-occipital regions lobe.</li>
+            <li><strong>ANTERIOR TEMPORAL:</strong> Deep, Middle, and Superficial layers of the anterior temporal lobe.</li>
+            <li><strong>CORPUS CALLOSUM:</strong> Body, Genu, and Splenium.</li>
+            <li><strong>THALAMUS:</strong> Anterior thalamus.</li>
+            <li><strong>CORTICOSPINAL:</strong> Corticospinal tract separated by brainstem and internal capsule regions.</li>
+            <li><strong>ACOUSTIC:</strong> Brachium, Lateral Lemniscus, Medial Geniculate ganglion, Pons.</li>
+            <li><strong>OPTIC:</strong> Lateral Geniculate, Meyers Loop, Radiations.</li>
+            <li><strong>MISC:</strong> Basal Ganglia, Cerebellum.</li>
+        </ul>
+        <p>Anyone is free to share and use the images however they want, though acknowledgement is appreciated.</p>
+    `;
+}
+		
+		
+
+function loadImages(groupName) {
+    const container = document.getElementById('content');
+    container.innerHTML = '<div class="image-container" id="image-container"></div>'; // Prepare the container for images
+    const imageContainer = document.getElementById('image-container');
+
+    // Define the specific slices for each group based on your list
+    const slices = {
+        'ACOUSTIC': [31, 36, 41, 46, 51, 56, 61, 66, 68, 69, 71, 73, 78, 83],
+        'ANTERIOR_TEMPORAL': [24, 29, 34, 39, 44, 49, 54, 59, 64, 69, 74, 79, 84, 89],
+        'CORPUS_CALLOSUM': [65, 70, 75, 80, 85, 90, 95, 100, 105],
+        'CORTICOSPINAL': [10, 15, 20, 25, 30, 35, 40, 45, 5, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100],
+        'FRONTAL': [48, 53, 58, 63, 68, 73, 78, 83, 88, 93, 98, 10, 3, 108, 113, 118, 123, 128, 133, 138, 143, 148],
+        'MISC': [12, 17, 22, 27, 32, 37, 42, 47, 52, 57, 62, 67, 7, 72, 77, 82, 87, 92, 97],
+        'OPTIC': [60, 63, 67, 68, 69, 70, 71, 74, 78, 82, 86, 90, 93],
+        'PARIETO_OCCIPITAL': [52, 57, 62, 67, 72, 77, 82, 87, 92, 97, 102, 107, 112, 117, 122, 127, 132, 137, 142, 147],
+        'THALAMUS': [65, 70, 75, 80, 85, 90]
+    };
+
+	// Define structure names for each group, with unique color for each substructure, displayed in bold
+	const structureNames = {
+		'ACOUSTIC': '<span style="color:#54489d;"><strong>Brachium</strong></span>, <span style="color:#efbf42;"><strong>Lateral Lemniscus</strong></span>, <span style="color:#6ff539;"><strong>Medial Geniculate</strong></span>, <span style="color:#d0ef3a;"><strong>Pons</strong></span>',
+		'ANTERIOR_TEMPORAL': '<span style="color:#3da437;"><strong>Deep</strong></span>, <span style="color:#4d4caa;"><strong>Middle</strong></span>, <span style="color:#f99442;"><strong>Superficial</strong></span>',
+		'CORPUS_CALLOSUM': '<span style="color:#f5d846;"><strong>Body</strong></span>, <span style="color:#44afdd;"><strong>Genu</strong></span>, <span style="color:#c5f345;"><strong>Splenium</strong></span>',
+		'CORTICOSPINAL': '<span style="color:#cb464a;"><strong>Brainstem</strong></span>, <span style="color:#4eb277;"><strong>Internal Capsule</strong></span>',
+		'FRONTAL': '<span style="color:#f3e366;"><strong>Deep</strong></span>, <span style="color:#f9d240;"><strong>Middle</strong></span>, <span style="color:#393939;"><strong>Superficial</strong></span>',
+		'MISC': '<span style="color:#e93e3f;"><strong>Basal Ganglia</strong></span>, <span style="color:#7e2587;"><strong>Cerebellum</strong></span>',
+		'OPTIC': '<span style="color:#48ad56;"><strong>Lateral Geniculate</strong></span>, <span style="color:#cb534c;"><strong>Meyers Loop</strong></span>, <span style="color:#58a1d5;"><strong>Radiations</strong></span>',
+		'PARIETO_OCCIPITAL': '<span style="color:#e14549;"><strong>Deep</strong></span>, <span style="color:#4649d9;"><strong>Middle</strong></span>, <span style="color:#3fa2d9;"><strong>Superficial</strong></span>',
+		'THALAMUS': '<span style="color:#2dafbb;"><strong>Anterior Thalamus</strong></span>'
+	};
+
+
+	// Display structure names
+	const header = document.createElement('div');
+	header.className = 'structure-header';
+	header.innerHTML = `Structures in ${groupName}: ${structureNames[groupName]}`;
+	container.insertBefore(header, imageContainer);
+
+
+    // Load images based on the group and slices
+    slices[groupName].forEach(slice => {
+        const img = document.createElement('img');
+        img.src = `images/${groupName}/${groupName}_slice_${slice}.jpeg`;
+        imageContainer.appendChild(img);
+    });
+}
+</script>
+
+</body>
+</html>
