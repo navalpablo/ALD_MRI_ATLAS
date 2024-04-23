@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Brain Atlas for X-ALD MRI Severity Score</title>
+
 <style>
     body, html {
         height: 100%;
@@ -12,94 +13,98 @@
     }
     .sidebar {
         height: 100%;
-        width: 250px;
+        min-width: 200px; /* Ensures a minimum width */
+        max-width: 210px; /* Sets a maximum width limit */
+        width: auto; /* Allows width to expand based on content */
         position: fixed;
         z-index: 1;
         top: 0;
         left: 0;
         background-color: #f9f9f9; /* nearly white background for the sidebar */
-        overflow-x: hidden;
+        overflow-x: hidden; /* Ensures no horizontal scrollbar appears */
         padding-top: 20px;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* soft shadow for depth */
     }
-	
-	.slider-instruction {
-		font-size: 16px; /* Adjust font size for clarity */
-		text-align: center; /* Center align the text */
-		color: #666; /* Soft grey for readability */
-		margin-bottom: 10px; /* Space between instruction and slider */
-	}
-	
+
+    .slider-instruction {
+        font-size: 16px; /* Adjust font size for clarity */
+        text-align: center; /* Center align the text */
+        color: #666; /* Soft grey for readability */
+        margin-bottom: 10px; /* Space between instruction and slider */
+    }
+
     .sidebar img {
-        width: 100%; 
-        height: auto;
-        margin-bottom: 20px; /* space between logos */
+        width: 1%; /* Reducing the width to better fit the sidebar */
+        max-width: 180px; /* Ensures that the image does not exceed this width */		
+        height: auto; /* Keeps the aspect ratio intact */
+        margin: 10px auto; /* Reduced margin and centered horizontally */
+        display: block; /* Ensures that the image is block level to respect width and margin settings */
         background-color: #f9f9f9; /* background color for logos */
-        padding: 10px; /* padding around the logos */
+        padding: 5px; /* Reduced padding around the logos */
     }
     .sidebar a {
-        padding: 10px 15px;
+        padding: 5px 5px;
         text-decoration: none;
         font-size: 18px;
         color: #818181;
         display: block;
+        white-space: nowrap; /* Ensures text does not wrap */
     }
     .sidebar a:hover {
         color: #f1f1f1;
     }
     .main {
-        margin-left: 250px;
+        margin-left: 300px; /* Adjusts left margin to match max sidebar width */
         padding: 20px;
         background-color: #f5f5f5; /* ensuring the main content also has a light background */
     }
 
-	#current-slice {
-		max-width: 100%; /* Ensures the image is not wider than the container */
-		max-height: 80vh; /* Limits the image height to 80% of the viewport height */
-		height: auto; /* Maintains aspect ratio */
-		display: block; /* Removes extra space below the image */
-		margin: 0 auto; /* Centers the image horizontally */
-	}
+    #current-slice {
+        max-width: 100%; /* Ensures the image is not wider than the container */
+        max-height: 80vh; /* Limits the image height to 80% of the viewport height */
+        height: auto; /* Maintains aspect ratio */
+        display: block; /* Removes extra space below the image */
+        margin: 0 auto; /* Centers the image horizontally */
+    }
 
-	#slice-slider {
-		width: 90%;
-		margin: 20px auto;
-		display: block;
-		-webkit-appearance: none; /* Overrides default styling */
-		appearance: none;
-		height: 15px; /* Increased track height for better touch */
-		background: #ddd; /* Track color */
-		outline: none; /* Removes the outline */
-		opacity: 0.7; /* Makes the slider slightly transparent */
-		transition: opacity .2s; /* Smooth transition for hover effects */
-	}
+    #slice-slider {
+        width: 90%;
+        margin: 20px auto;
+        display: block;
+        -webkit-appearance: none; /* Overrides default styling */
+        appearance: none;
+        height: 15px; /* Increased track height for better touch */
+        background: #ddd; /* Track color */
+        outline: none; /* Removes the outline */
+        opacity: 0.7; /* Makes the slider slightly transparent */
+        transition: opacity .2s; /* Smooth transition for hover effects */
+    }
 
-	#slice-slider:hover {
-		opacity: 1; /* Full opacity on hover */
-	}
+    #slice-slider:hover {
+        opacity: 1; /* Full opacity on hover */
+    }
 
-	/* Styles for the thumb */
-	#slice-slider::-webkit-slider-thumb {
-		-webkit-appearance: none; /* Overrides default styling */
-		appearance: none;
-		width: 25px; /* Width of the thumb */
-		height: 25px; /* Height of the thumb, make it square */
-		background: #4CAF50; /* Green color for visibility */
-		cursor: pointer; /* Indicates that the element is draggable */
-	}
+    /* Styles for the thumb */
+    #slice-slider::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Overrides default styling */
+        appearance: none;
+        width: 25px; /* Width of the thumb */
+        height: 25px; /* Height of the thumb, make it square */
+        background: #4CAF50; /* Green color for visibility */
+        cursor: pointer; /* Indicates that the element is draggable */
+    }
 
-	#slice-slider::-moz-range-thumb {
-		width: 25px;
-		height: 25px;
-		background: #4CAF50;
-		cursor: pointer;
-	}
+    #slice-slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        background: #4CAF50;
+        cursor: pointer;
+    }
 
-
-	.image-container {
-		text-align: center;
-		padding: 20px 0; /* Adds padding around the image */
-	}
+    .image-container {
+        text-align: center;
+        padding: 20px 0; /* Adds padding around the image */
+    }
     .content {
         max-width: 800px;
         margin: auto;
@@ -111,6 +116,14 @@
         color: #666;
     }
 @media (max-width: 768px) {
+    .sidebar {
+        width: 200px; /* Optionally reduce the sidebar width on smaller screens */
+    }
+
+    .main {
+        margin-left: 200px; /* Adjust margin to match the sidebar width */
+    }
+
     #current-slice {
         max-height: 60vh; /* Reduces the height on smaller screens */
     }
@@ -125,17 +138,10 @@
         height: 30px;
     }
 }
-
-    .sidebar {
-        width: 200px; /* Optionally reduce the sidebar width on smaller screens */
-    }
-
-    .main {
-        margin-left: 200px; /* Adjust margin to match the sidebar width */
-    }
-}
-
 </style>
+
+
+
 </head>
 <body>
 
