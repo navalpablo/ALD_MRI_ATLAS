@@ -8,6 +8,7 @@
         height: 100%;
         margin: 0;
         font-family: Arial, sans-serif;
+        background-color: #f5f5f5; /* light gray background for the whole page */
     }
     .sidebar {
         height: 100%;
@@ -16,9 +17,17 @@
         z-index: 1;
         top: 0;
         left: 0;
-        background-color: #111;
+        background-color: #f9f9f9; /* nearly white background for the sidebar */
         overflow-x: hidden;
         padding-top: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* soft shadow for depth */
+    }
+    .sidebar img {
+        width: 100%; 
+        height: auto;
+        margin-bottom: 20px; /* space between logos */
+        background-color: #f9f9f9; /* background color for logos */
+        padding: 10px; /* padding around the logos */
     }
     .sidebar a {
         padding: 10px 15px;
@@ -33,6 +42,7 @@
     .main {
         margin-left: 250px;
         padding: 20px;
+        background-color: #f5f5f5; /* ensuring the main content also has a light background */
     }
     .image-container {
         white-space: nowrap;
@@ -57,13 +67,16 @@
         color: #666;
     }
 </style>
+
+
+
 </head>
 <body>
 
 <div class="sidebar">
-    <a href="#" onclick="showHome()">Home</a>
-    <a href="#" onclick="loadImages('FRONTAL')">FRONTAL</a>
-	<a href="#" onclick="loadImages('PARIETO_OCCIPITAL')">PARIETO OCCIPITAL</a>
+    <a href="#" onclick="showHome()"><strong>Home</strong></a>
+	<a href="#" onclick="loadImages('FRONTAL')">FRONTAL</a>
+    <a href="#" onclick="loadImages('PARIETO_OCCIPITAL')">PARIETO OCCIPITAL</a>
 	<a href="#" onclick="loadImages('ANTERIOR_TEMPORAL')">ANTERIOR TEMPORAL</a>
 	<a href="#" onclick="loadImages('CORPUS_CALLOSUM')">CORPUS CALLOSUM</a>
 	<a href="#" onclick="loadImages('THALAMUS')">THALAMUS</a>
@@ -71,13 +84,22 @@
 	<a href="#" onclick="loadImages('ACOUSTIC')">ACOUSTIC</a>
     <a href="#" onclick="loadImages('OPTIC')">OPTIC</a>
 	<a href="#" onclick="loadImages('MISC')">MISC</a>
+    <a href="#" onclick="showHome()">
+        <img src="images/IDI.gif" alt="IDI Logo" style="width: 100%; height: auto;">
+    </a>
+    <a href="#" onclick="showHome()">
+        <img src="images/Bellvitge.png" alt="Bellvitge Hospital Universitari Logo" style="width: 100%; height: auto;">
+    </a>
+    <a href="#" onclick="showHome()">
+        <img src="images/IDIBELL.png" alt="IDIBELL Logo" style="width: 100%; height: auto;">
+    </a>	
 </div>
 
 <div class="main">
     <div id="content" class="content">
         <h2>Welcome to the Brain Atlas for X-ALD</h2>
         <p>This educational website is designed to provide an interactive learning experience using the anatomical atlas tailored for MRI severity scoring in X-linked adrenoleukodystrophy (X-ALD).</p>
-		<p>Developed by researchers at the Bellvitge University Hospital and IDIBELL "Neurometabolic diseases" and "Diagnostic Imaging and Nuclear Medicine" Research groups.</p>
+		<p>Developed by researchers at the Bellvitge University Hospital, Institut de Diagnostic per la Imatge, and IDIBELL "Neurometabolic diseases" and "Diagnostic Imaging and Nuclear Medicine" Research groups.</p>
         <h3>Explore Brain Regions</h3>
         <ul>
             <li><strong>FRONTAL:</strong> Deep, Middle, and Superficial layers of the frontal lobe.</li>
@@ -100,7 +122,7 @@ function showHome() {
     container.innerHTML = `
         <h2>Welcome to the Brain Atlas for X-ALD</h2>
         <p>This educational website is designed to provide an interactive learning experience using the anatomical atlas tailored for MRI severity scoring in X-linked adrenoleukodystrophy (X-ALD).</p>
-		<p>Developed by researchers at the Bellvitge University Hospital and IDIBELL "Neurometabolic diseases" and "Diagnostic Imaging and Nuclear Medicine" Research groups.</p>
+		<p>Developed by researchers at the Bellvitge University Hospital, Institut de Diagnostic per la Imatge, and IDIBELL "Neurometabolic diseases" and "Diagnostic Imaging and Nuclear Medicine" Research groups.</p>
         <h3>Explore Brain Regions</h3>
         <ul>
             <li><strong>FRONTAL:</strong> Deep, Middle, and Superficial layers of the frontal lobe.</li>
