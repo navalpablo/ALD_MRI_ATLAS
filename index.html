@@ -101,38 +101,52 @@
     }
 
     #slice-slider {
-        -webkit-appearance: none;
+        width: 90%;
+        margin: 20px auto;
+        display: block;
+        -webkit-appearance: none; /* Ensures the default style is overridden */
         appearance: none;
-        height: 15px;
-        background: #ddd;
-        outline: none;
-        opacity: 0.7;
-        transition: opacity .2s;
+        height: 15px; /* Sufficient height for better touch interaction */
+        background: #ddd; /* Neutral background for the slider track */
+        outline: none; /* Removes default focus outline for a cleaner look */
+        opacity: 0.7; /* Slightly transparent by default */
+        transition: opacity .2s; /* Smooth transition for hover effects */
     }
 
     #slice-slider:hover {
-        opacity: 1;
+        opacity: 1; /* Full opacity on hover for better visibility */
     }
 
-    #slice-slider::-webkit-slider-thumb, #slice-slider::-moz-range-thumb {
-        -webkit-appearance: none;
+    #slice-slider::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Necessary to remove default styling */
         appearance: none;
-        width: 25px;
+        width: 25px; /* Optimal width for easy finger touch */
+        height: 25px; /* Matching height to maintain square appearance */
+        background: #4CAF50; /* Bright, visible color for the thumb */
+        cursor: pointer; /* Indicates the element is draggable */
+    }
+
+    #slice-slider::-moz-range-thumb {
+        width: 25px; /* Consistent with the WebKit style for Firefox */
         height: 25px;
-        background: #4CAF50;
-        cursor: pointer;
+        background: #4CAF50; /* Matching background color */
+        cursor: pointer; /* Ensure cursor indicates draggability */
     }
 
     @media (max-width: 768px) {
-        .sidebar {
-            width: 160px; /* Adjust sidebar width for smaller screens */
+        /* Adjustments for smaller screens */
+        #slice-slider {
+            height: 20px; /* Increased height for better touch target on mobile */
         }
 
-        .main {
-            margin-left: 170px; /* Adjust main content margin to new sidebar width */
+        #slice-slider::-webkit-slider-thumb,
+        #slice-slider::-moz-range-thumb {
+            width: 30px; /* Larger thumb for easier manipulation on small screens */
+            height: 30px;
         }
     }
 </style>
+
 
 
 
