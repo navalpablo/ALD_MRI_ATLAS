@@ -73,27 +73,28 @@
         line-height: 1.6; /* Improved line height for readability */
         margin-bottom: 10px; /* Space between paragraphs */
     }
-
     table {
-        width: 100%; /* Full-width table */
-        border-collapse: collapse;
-        margin: 20px 0;
+        width: auto; /* Adjusts width based on content */
+        max-width: 100%; /* Ensures the table does not exceed the container width */
+        margin: 20px auto; /* Centers the table and provides spacing */
+        border-collapse: collapse; /* Eliminates space between borders */
     }
 
     th, td {
-        border: 1px solid #ccc;
-        padding: 10px;
-        text-align: left;
+        border: 1px solid #ccc; /* Light gray border for readability */
+        padding: 8px; /* Padding inside cells for better text alignment */
+        text-align: left; /* Aligns text to the left within cells */
     }
 
     th {
-        background-color: #f9f9f9; /* Light gray background for table headers */
+        background-color: #f9f9f9; /* Light gray background for headers */
+        color: #333; /* Darker text for contrast */
     }
 
     tr:nth-child(even) {
-        background-color: #f2f2f2; /* Zebra striping for rows */
+        background-color: #f2f2f2; /* Zebra striping for better readability */
     }
-
+	
     #current-slice, #slice-slider {
         width: 90%;
         display: block;
@@ -105,6 +106,14 @@
         height: auto; /* Maintains aspect ratio */
         display: block; /* Removes extra space below the image */
         margin: 0 auto; /* Centers the image horizontally */
+    }
+    #current-slice {
+        max-width: 90%; /* Reduces the maximum width to give some padding */
+        max-height: 80vh; /* Limits the image height to 80% of the viewport height */
+        width: auto; /* Allows the width to naturally adjust according to aspect ratio */
+        height: auto; /* Maintains the aspect ratio */
+        display: block; /* Ensures the image is block level to respect width and margin settings */
+        margin: 0px auto; /* Centers the image horizontally and gives some space top and bottom */
     }
 
     #slice-slider {
