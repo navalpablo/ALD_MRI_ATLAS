@@ -26,7 +26,7 @@
     }
     .sidebar {
         height: 100%;
-        width: 210px; /* Fixed width */
+        width: 220px; /* Fixed width */
         position: fixed;
         z-index: 1;
         top: 0;
@@ -171,16 +171,18 @@
 <body>
 
 <div class="sidebar">
-    <a href="#" onclick="showHome()"><strong>HOME</strong></a>
-	<a href="#" onclick="loadImages('FRONTAL')">FRONTAL</a>
-    <a href="#" onclick="loadImages('PARIETO_OCCIPITAL')">PARIETO OCCIPITAL</a>
-	<a href="#" onclick="loadImages('ANTERIOR_TEMPORAL')">ANTERIOR TEMPORAL</a>
-	<a href="#" onclick="loadImages('CORPUS_CALLOSUM')">CORPUS CALLOSUM</a>
-	<a href="#" onclick="loadImages('THALAMUS')">THALAMUS</a>
-	<a href="#" onclick="loadImages('CORTICOSPINAL')">CORTICOSPINAL</a>
-	<a href="#" onclick="loadImages('ACOUSTIC')">ACOUSTIC</a>
-    <a href="#" onclick="loadImages('OPTIC')">OPTIC</a>
-	<a href="#" onclick="loadImages('MISC')">MISC</a>
+    <a href="#" onclick="showHome()"><strong>Home</strong></a>
+    <a href="#" onclick="showLoesScore()"><strong>Loes Score</strong></a>
+	<a href="#" onclick="loadImages('FRONTAL')"> - FRONTAL</a>
+    <a href="#" onclick="loadImages('PARIETO_OCCIPITAL')"> - PARIETO-OCCIPITAL</a>
+	<a href="#" onclick="loadImages('ANTERIOR_TEMPORAL')"> - ANTERIOR TEMPORAL</a>
+	<a href="#" onclick="loadImages('CORPUS_CALLOSUM')"> - CORPUS CALLOSUM</a>
+	<a href="#" onclick="loadImages('THALAMUS')"> - THALAMUS</a>
+	<a href="#" onclick="loadImages('CORTICOSPINAL')"> - CORTICOSPINAL</a>
+	<a href="#" onclick="loadImages('ACOUSTIC')"> - ACOUSTIC</a>
+    <a href="#" onclick="loadImages('OPTIC')"> - OPTIC</a>
+	<a href="#" onclick="loadImages('MISC')"> - MISC</a>
+    <a href="#" onclick="DOWNLOAD()"><strong>DOWNLOAD</strong></a>
 	<a></a>
 	<a></a>
     <a href="https://idi.gencat.cat/" target="_blank">
@@ -200,181 +202,14 @@
         <p>This educational website provides an interactive visual way to explore the atlas for X-linked adrenoleukodystrophy (X-ALD) developed by Naval-Baudin et al (2024), which is based on the descriptions of the X-ALD Disease Severity Scoring method described by <a href="https://www.ajnr.org/content/15/9/1761" target="_blank">Loes et al (1994)</a>.</p>
         <p>The atlas and this visual tool have been developed with contributions from researchers at the Bellvitge University Hospital, Institut de Diagnostic per la Imatge, and IDIBELL, aiming to make the evaluation of disease severity as accessible  as possible.</p>
         
-		<p><a href="https://zenodo.org/records/11047634" target="_blank">Download the atlas files in MNI152 space in our Zenodo repository.</a> </p>
 		
-        <h3>MRI Severity Scoring System by Loes et al (1994)</h3>
-        <p>The scoring system facilitates a detailed assessment of disease progression in X-ALD through MRI observations. Below is the scoring table that quantifies the severity across various brain regions:</p>
-        
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Anatomical Region</th>
-                    <th>Feature</th>
-                    <th>Points Assigned</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Parietal-Occipital White Matter -->
-                <tr>
-                    <td rowspan="4">PARIETAL-OCCIPITAL WHITE MATTER</td>
-                    <td>Periventricular</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Central</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Subcortical</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Atrophy</td>
-                    <td>1</td>
-                </tr>
-                <!-- Anterior Temporal White Matter -->
-                <tr>
-                    <td rowspan="4">ANTERIOR TEMPORAL WHITE MATTER</td>
-                    <td>Periventricular</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Central</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Subcortical</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Atrophy</td>
-                    <td>1</td>
-                </tr>
-                <!-- Frontal White Matter -->
-                <tr>
-                    <td rowspan="4">FRONTAL WHITE MATTER</td>
-                    <td>Periventricular</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Central</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Subcortical</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Atrophy</td>
-                    <td>1</td>
-                </tr>
-                <!-- Corpus Callosum -->
-                <tr>
-                    <td rowspan="5">CORPUS CALLOSUM</td>
-                    <td>Splenium</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Body</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Genu</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Atrophy-Splenium</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Atrophy-Genu</td>
-                    <td>1</td>
-                </tr>
-                <!-- Visual Pathway -->
-                <tr>
-                    <td rowspan="3">VISUAL PATHWAY</td>
-                    <td>Optic Radiations</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Lateral Geniculate Body</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Meyer’s Loop</td>
-                    <td>1</td>
-                </tr>
-                <!-- Auditory Pathway -->
-                <tr>
-                    <td rowspan="4">AUDITORY PATHWAY</td>
-                    <td>Medial Geniculate Body</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Brachium to Inferior Colliculus</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Lateral Lemniscus (Midbrain)</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Lateral Lemniscus (Pons)</td>
-                    <td>1</td>
-                </tr>
-                <!-- Projection Fibers -->
-                <tr>
-                    <td rowspan="2">PROJECTION FIBERS</td>
-                    <td>Internal Capsule</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Brain Stem</td>
-                    <td>1</td>
-                </tr>
-                <!-- Miscellaneous -->
-                <tr>
-                    <td rowspan="3">MISCELLANEOUS</td>
-                    <td>Basal Ganglia</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Cerebellum</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Anterior Thalamus</td>
-                    <td>1</td>
-                </tr>
-                <!-- Atrophy -->
-                <tr>
-                    <td rowspan="3">ATROPHY</td>
-                    <td>Global</td>
-                    <td>1-3</td>
-                </tr>
-                <tr>
-                    <td>Brain Stem</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>Cerebellar</td>
-                    <td>1</td>
-                </tr>
-                <!-- Maximum Severity Score -->
-                <tr>
-                    <td colspan="3"><strong>MAXIMUM SEVERITY SCORE: 34</strong></td>
-                </tr>
-            </tbody>
-        </table>
-
-
         <h3>Licensing Information</h3>
         <p>All content available on this website, including images and data from the Brain Atlas for X-ALD, is licensed for free use, including commercial purposes, provided that appropriate credit is given to the original source. Users are encouraged to share, copy, distribute, and transmit the work or adapt it to suit their professional needs, as long as proper acknowledgment is provided to 'Naval-Baudin et al (2024)' and linked publications.</p>
-        
+        <h3>Contact</h3>
         <p>For queries or suggestions, please contact <strong><a href="mailto:pablo.naval.idi@gencat.cat">pablo.naval.idi@gencat.cat</a></strong>.</p>
     </div>
 </div>
-      m
+      
 
 <script>
 function showHome() {
@@ -384,9 +219,29 @@ function showHome() {
         <p>This educational website provides an interactive visual way to explore the atlas for X-linked adrenoleukodystrophy (X-ALD) developed by Naval-Baudin et al (2024), which is based on the descriptions of the X-ALD Disease Severity Scoring method described by <a href="https://www.ajnr.org/content/15/9/1761" target="_blank">Loes et al (1994)</a>.</p>
         <p>The atlas and this visual tool have been developed with contributions from researchers at the Bellvitge University Hospital, Institut de Diagnostic per la Imatge, and IDIBELL, aiming to make the evaluation of disease severity as accessible  as possible.</p>
         
-		<p><a href="https://zenodo.org/records/11047634" target="_blank">Download the atlas files in MNI152 space in our Zenodo repository.</a> </p>
 		
-        <h3>MRI Severity Scoring System by Loes et al (1994)</h3>
+        <h3>Licensing Information</h3>
+        <p>All content available on this website, including images and data from the Brain Atlas for X-ALD, is licensed for free use, including commercial purposes, provided that appropriate credit is given to the original source. Users are encouraged to share, copy, distribute, and transmit the work or adapt it to suit their professional needs, as long as proper acknowledgment is provided to 'Naval-Baudin et al (2024)' and linked publications.</p>
+        <h3>Contact</h3>
+        <p>For queries or suggestions, please contact <strong><a href="mailto:pablo.naval.idi@gencat.cat">pablo.naval.idi@gencat.cat</a></strong>.</p>
+    `;
+}
+
+function DOWNLOAD() {
+    const container = document.getElementById('content');
+    container.innerHTML = `
+        <h3>Download the X-ALD Atlas in FSL MNI152 space</h3>
+       
+	<p><a href="https://zenodo.org/records/11047634" target="_blank">Download the atlas files in MNI152 space in our Zenodo repository.</a> </p>
+	
+    `;
+}
+
+
+function showLoesScore() {
+    const container = document.getElementById('content');
+    container.innerHTML = `
+        <h2>MRI Severity Scoring System by Loes et al (1994)</h2>
         <p>The scoring system facilitates a detailed assessment of disease progression in X-ALD through MRI observations. Below is the scoring table that quantifies the severity across various brain regions:</p>
         
         <table border="1">
@@ -550,12 +405,63 @@ function showHome() {
                 </tr>
             </tbody>
         </table>
-        <h3>Licensing Information</h3>
-        <p>All content available on this website, including images and data from the Brain Atlas for X-ALD, is licensed for free use, including commercial purposes, provided that appropriate credit is given to the original source. Users are encouraged to share, copy, distribute, and transmit the work or adapt it to suit their professional needs, as long as proper acknowledgment is provided to 'Naval-Baudin et al (2024)' and linked publications.</p>
+        <p></p>
 
-        <p>For queries or suggestions, please contact <strong><a href="mailto:pablo.naval.idi@gencat.cat">pablo.naval.idi@gencat.cat</a></strong>.</p>
     `;
 }
+
+function loadImages(groupName) {
+    const slices = {
+        'ACOUSTIC': [31, 36, 41, 46, 51, 56, 61, 66, 68, 69, 71, 73, 78, 83],
+        'ANTERIOR_TEMPORAL': [24, 29, 34, 39, 44, 49, 54, 59, 64, 69, 74, 79, 84, 89],
+        'CORPUS_CALLOSUM': [65, 70, 75, 80, 85, 90, 95, 100, 105],
+        'CORTICOSPINAL': [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100],
+        'FRONTAL': [48, 53, 58, 63, 68, 73, 78, 83, 88, 93, 98, 103, 108, 113, 118, 123, 128, 133, 138, 143, 148],
+        'MISC': [12, 17, 22, 27, 32, 37, 42, 47, 52, 57, 62, 67, 72, 77, 82, 87, 92, 97],
+        'OPTIC': [60, 63, 67, 68, 69, 70, 71, 74, 78, 82, 86, 90, 93],
+        'PARIETO_OCCIPITAL': [52, 57, 62, 67, 72, 77, 82, 87, 92, 97, 102, 107, 112, 117, 122, 127, 132, 137, 142, 147],
+        'THALAMUS': [65, 70, 75, 80, 85, 90]
+    };
+
+    // Define structure names for each group, with unique color for each substructure, displayed in bold
+    const structureNames = {
+        'ACOUSTIC': '<span style="color:#54489d;"><strong>Brachium</strong></span>, <span style="color:#efbf42;"><strong>Lateral Lemniscus</strong></span>, <span style="color:#6ff539;"><strong>Medial Geniculate</strong></span>, <span style="color:#d0ef3a;"><strong>Pons</strong></span>',
+        'ANTERIOR_TEMPORAL': '<span style="color:#3da437;"><strong>Deep</strong></span>, <span style="color:#4d4caa;"><strong>Middle</strong></span>, <span style="color:#f99442;"><strong>Superficial</strong></span>',
+        'CORPUS_CALLOSUM': '<span style="color:#44afdd;"><strong>Body</strong></span>, <span style="color:#f5d846;"><strong>Genu</strong></span>, <span style="color:#c5f345;"><strong>Splenium</strong></span>',
+        'CORTICOSPINAL': '<span style="color:#cb464a;"><strong>Brainstem</strong></span>, <span style="color:#4eb277;"><strong>Internal Capsule</strong></span>',
+        'FRONTAL': '<span style="color:#f3e366;"><strong>Deep</strong></span>, <span style="color:#f9d240;"><strong>Middle</strong></span>, <span style="color:#393939;"><strong>Superficial</strong></span>',
+        'MISC': '<span style="color:#e93e3f;"><strong>Basal Ganglia</strong></span>, <span style="color:#7e2587;"><strong>Cerebellum</strong></span>',
+        'OPTIC': '<span style="color:#48ad56;"><strong>Lateral Geniculate</strong></span>, <span style="color:#cb534c;"><strong>Meyers Loop</strong></span>, <span style="color:#58a1d5;"><strong>Radiations</strong></span>',
+        'PARIETO_OCCIPITAL': '<span style="color:#e14549;"><strong>Deep</strong></span>, <span style="color:#4649d9;"><strong>Middle</strong></span>, <span style="color:#3fa2d9;"><strong>Superficial</strong></span>',
+        'THALAMUS': '<span style="color:#2dafbb;"><strong>Anterior Thalamus</strong></span>'
+    };
+
+    const middleIndex = Math.floor(slices[groupName].length / 2); // Calculate middle index for the slider
+
+    const container = document.getElementById('content');
+    container.innerHTML = `
+        <div style="text-align: center;">
+            <div class="structure-header">Structures in ${groupName}: ${structureNames[groupName]}</div>
+            <img id="current-slice" src="images/${groupName}/${groupName}_slice_${slices[groupName][middleIndex]}.jpeg" alt="Current Slice">
+            <p class="slider-instruction">Drag the slider to view different slices:</p>
+            <input type="range" id="slice-slider" class="slider" min="0" max="${slices[groupName].length - 1}" value="${middleIndex}" step="1" oninput="updateImage('${groupName}', ${JSON.stringify(slices[groupName])})" ontouchmove="updateImage('${groupName}', ${JSON.stringify(slices[groupName])})">
+        </div>
+    `;
+
+    document.getElementById('slice-slider').addEventListener('touchstart', function() {
+        this.focus(); // Enhances focus when touched, improving responsiveness
+    });
+}
+
+function updateImage(groupName, slices) {
+    const slider = document.getElementById('slice-slider');
+    const img = document.getElementById('current-slice');
+    const sliceIndex = slices[slider.value];
+    img.src = `images/${groupName}/${groupName}_slice_${sliceIndex}.jpeg`;
+}
+
+
+
 function loadImages(groupName) {
     const slices = {
         'ACOUSTIC': [31, 36, 41, 46, 51, 56, 61, 66, 68, 69, 71, 73, 78, 83],
