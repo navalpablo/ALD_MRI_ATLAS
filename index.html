@@ -99,6 +99,13 @@
         display: block;
         margin: 20px auto;
     }
+    #current-slice {
+        max-width: 100%; /* Ensures the image is not wider than its container */
+        max-height: 80vh; /* Limits the image height to 80% of the viewport height */
+        height: auto; /* Maintains aspect ratio */
+        display: block; /* Removes extra space below the image */
+        margin: 0 auto; /* Centers the image horizontally */
+    }
 
     #slice-slider {
         width: 90%;
@@ -555,7 +562,7 @@ function loadImages(groupName) {
     const structureNames = {
         'ACOUSTIC': '<span style="color:#54489d;"><strong>Brachium</strong></span>, <span style="color:#efbf42;"><strong>Lateral Lemniscus</strong></span>, <span style="color:#6ff539;"><strong>Medial Geniculate</strong></span>, <span style="color:#d0ef3a;"><strong>Pons</strong></span>',
         'ANTERIOR_TEMPORAL': '<span style="color:#3da437;"><strong>Deep</strong></span>, <span style="color:#4d4caa;"><strong>Middle</strong></span>, <span style="color:#f99442;"><strong>Superficial</strong></span>',
-        'CORPUS_CALLOSUM': '<span style="color:#f5d846;"><strong>Body</strong></span>, <span style="color:#44afdd;"><strong>Genu</strong></span>, <span style="color:#c5f345;"><strong>Splenium</strong></span>',
+        'CORPUS_CALLOSUM': '<span style="color:#44afdd;"><strong>Body</strong></span>, <span style="color:#f5d846;"><strong>Genu</strong></span>, <span style="color:#c5f345;"><strong>Splenium</strong></span>',
         'CORTICOSPINAL': '<span style="color:#cb464a;"><strong>Brainstem</strong></span>, <span style="color:#4eb277;"><strong>Internal Capsule</strong></span>',
         'FRONTAL': '<span style="color:#f3e366;"><strong>Deep</strong></span>, <span style="color:#f9d240;"><strong>Middle</strong></span>, <span style="color:#393939;"><strong>Superficial</strong></span>',
         'MISC': '<span style="color:#e93e3f;"><strong>Basal Ganglia</strong></span>, <span style="color:#7e2587;"><strong>Cerebellum</strong></span>',
